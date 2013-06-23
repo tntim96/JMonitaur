@@ -1,26 +1,18 @@
 package com.github.tntim96.jmonitaur.web;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
-
 import com.github.tntim96.jmonitaur.model.Status;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
+public class StatusController {
 
-public class StatusController implements Controller {
+    @RequestMapping(value = {"/status"})
+    public String status(ModelMap model) {
+        model.put("status", new Status());
+        model.put("message", "Hello");
 
-	public ModelAndView handleRequest(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-
-		Map<String,Object> model = new HashMap<String,Object>();
-		model.put( "status", new Status() );
-		model.put( "message", "Hello" );
-		
-		return new ModelAndView("status", model);
-	}
+        return "status";
+    }
 }

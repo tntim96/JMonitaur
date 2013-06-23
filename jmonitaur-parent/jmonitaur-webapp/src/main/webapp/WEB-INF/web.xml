@@ -3,10 +3,12 @@
 	 xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
 			     http://java.sun.com/xml/ns/j2ee/web-app_2_5.xsd">
   <display-name>JMonitaur Web Application</display-name>
+  <description>JMonitaur Web Application User Interface</description>
   
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
+      classpath:applicationContext.xml
       classpath:applicationContext-service.xml
     </param-value>
   </context-param>
@@ -34,6 +36,6 @@
   
   <servlet-mapping>
     <servlet-name>service</servlet-name>
-    <url-pattern>/service</url-pattern>
+    <url-pattern>/service/*</url-pattern>
   </servlet-mapping>
 </web-app>
