@@ -21,3 +21,5 @@ target
 /jmonitaur-parent/jmonitaur-webapp/.classpath
 .settings
 target
+
+.idea
