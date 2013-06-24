@@ -1,0 +1,10 @@
+table.healthTable {
+  border: 0px;
+}
+
+table.healthTable th, td {
+  border: 1px solid #666666;
+  border-collapse: collapse;
+  padding: 2px;
+  margin: 0px;
+}
