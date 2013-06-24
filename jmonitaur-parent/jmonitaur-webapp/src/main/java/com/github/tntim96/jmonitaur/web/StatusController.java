@@ -5,6 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Date;
+
 @Controller
 public class StatusController {
 
@@ -14,5 +19,22 @@ public class StatusController {
         model.put("message", "Hello");
 
         return "status";
+    }
+
+    @RequestMapping(value = {"/statusSSE"})
+    public String statusSSE(HttpServletResponse response) throws IOException {
+        response.setContentType("text/event-stream");
+        PrintWriter pw = response.getWriter();
+        for (int i = 0; i < 10; i++) {
+            try {
+                pw.print("event: status-update\n");
+                pw.print("data: " + new Date().toString() + "\n\n");
+                pw.flush();
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+        }
+        return null;
     }
 }

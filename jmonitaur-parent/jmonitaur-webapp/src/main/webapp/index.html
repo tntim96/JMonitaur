@@ -6,8 +6,19 @@
     <link rel="stylesheet" href="css/app.css">
     <script src="js/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="js/status.js"></script>
+    <script type="text/javascript" language="JavaScript">
+        <!--
+        function registerSSE() {
+          var source = new EventSource('http://localhost:8080/jmonitaur-webapp/service/statusSSE');
+          source.addEventListener('status-update', function(e) {
+            document.getElementById('statusUpdateDiv').innerHTML = e.data;
+          }, false);
+        }
+
+        -->
+    </script>
 </head>
-<body ng-controller="StatusListCtrl">
+<body ng-controller="StatusListCtrl" onLoad="registerSSE()">
 
 <table class="healthTable">
     <tr>
@@ -20,5 +31,6 @@
     </tr>
 </table>
 
+<div id="statusUpdateDiv">[STATUS]</div>
 </body>
 </html>
