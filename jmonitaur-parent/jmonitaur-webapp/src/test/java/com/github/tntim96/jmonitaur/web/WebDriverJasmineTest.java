@@ -1,6 +1,7 @@
 package com.github.tntim96.jmonitaur.web;
 
 import jscover.Main;
+import jscover.util.IoUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -19,9 +20,10 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElement;
 
-public class WebDriverServerTest {
+public class WebDriverJasmineTest {
     private static Thread server;
 
     static {
@@ -105,6 +107,8 @@ public class WebDriverServerTest {
         new WebDriverWait(webClient, 1).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("browserIframe"));
         new WebDriverWait(webClient, 1).until(ExpectedConditions.presenceOfElementLocated(By.className("duration")));
         new WebDriverWait(webClient, 1).until(ExpectedConditions.textToBePresentInElement(By.className("duration"), "finished"));
+        verifyJamineTestsPassed();
+
         webClient.switchTo().window(handle);
 
         new WebDriverWait(webClient, 1).until(ExpectedConditions.elementToBeClickable(By.id("storeTab")));
@@ -130,6 +134,7 @@ public class WebDriverServerTest {
         webClient.switchTo().window("jscoverage_window");
         new WebDriverWait(webClient, 1).until(ExpectedConditions.presenceOfElementLocated(By.className("duration")));
         new WebDriverWait(webClient, 1).until(ExpectedConditions.textToBePresentInElement(By.className("duration"), "finished"));
+        verifyJamineTestsPassed();
         webClient.switchTo().window(handle);
 
         verifyTotal(webClient, 100, 0, 100);
@@ -139,6 +144,12 @@ public class WebDriverServerTest {
 
         webClient.get("http://localhost:9001/target/jscover/jscoverage.html");
         verifyTotal(webClient, 100, 0, 100);
+    }
+
+    private void verifyJamineTestsPassed() {
+        if (webClient.findElements(By.className("failingAlert")).size() != 0) {
+            fail("Failing on test " + getTestUrl());
+        }
     }
 
     protected void verifyTotal(WebDriver webClient, int percentage, int branchPercentage, int functionPercentage) throws IOException {
