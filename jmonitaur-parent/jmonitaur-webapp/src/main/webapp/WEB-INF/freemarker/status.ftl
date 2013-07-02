@@ -4,7 +4,7 @@
     <title>Status</title>
 </head>
 <body>
-<table>
+<table class="healthTable">
     <tr>
         <th>Level</th>
         <th>System</th>
