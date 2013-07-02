@@ -1,7 +1,6 @@
 package com.github.tntim96.jmonitaur.web;
 
 import jscover.Main;
-import jscover.util.IoUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -15,7 +14,9 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElement;
@@ -31,10 +32,9 @@ public class WebDriverServerTest {
     }
 
     protected WebDriver webClient = getWebClient();
-    protected IoUtils ioUtils = IoUtils.getInstance();
     private String[] args = new String[]{
             "-ws",
-            "--document-root=jmonitaur-parent/jmonitaur-webapp",
+            "--document-root=" + getWebDir(),
             "--port=9001",
             "--no-instrument=src/main/webapp/js/libs",
             "--no-instrument=src/test",
@@ -42,8 +42,13 @@ public class WebDriverServerTest {
             "--report-dir=" + getReportDir()
     };
 
+    protected String getWebDir() {
+        File userDir = new File(System.getProperty("user.dir"));
+        return Arrays.asList(userDir.list()).contains("jmonitaur-parent") ? "jmonitaur-parent/jmonitaur-webapp" : ".";
+    }
+
     protected String getReportDir() {
-        return "jmonitaur-parent/jmonitaur-webapp/target/jscover";
+        return getWebDir() + "/target/jscover";
     }
 
     public WebDriver getWebClient() {
