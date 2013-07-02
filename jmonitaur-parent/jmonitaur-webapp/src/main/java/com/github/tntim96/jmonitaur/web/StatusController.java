@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class StatusController {
@@ -22,8 +24,15 @@ public class StatusController {
         this.service = service;
     }
 
+    public
+    @ResponseBody
+    @RequestMapping(value = "/statusJSON", produces = "application/json")
+    List<Status> getStatusJSON() {
+        return service.getStatues();
+    }
+
     @RequestMapping(value = {"/status"})
-    public String status(ModelMap model) {
+    public String getStatusHtml(ModelMap model) {
         model.put("statuses", service.getStatues());
         return "status";
     }
