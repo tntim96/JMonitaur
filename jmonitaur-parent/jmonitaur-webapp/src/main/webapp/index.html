@@ -9,7 +9,7 @@
     <script type="text/javascript" language="JavaScript">
         <!--
         function registerSSE() {
-          var source = new EventSource('http://localhost:8080/service/statusSSE');
+          var source = new EventSource('service/statusSSE');
           source.addEventListener('status-update', function(e) {
             document.getElementById('statusUpdateDiv').innerHTML = e.data;
           }, false);
