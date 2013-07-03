@@ -1,11 +1,12 @@
 [#ftl]
 <!doctype html>
-<html>
+<html[#if page.properties?keys?seq_contains("ng-app")] ng-app[/#if]>
 <head>
     <title>JMonitaur - ${page.title}</title>
     <link rel="stylesheet" href="${rc.getContextPath()}/css/app.css">
+    ${page.head}
 </head>
-<body>
+<body[#list page.properties?keys as key][#if key?starts_with("body.")] ${key?substring(5)}="${page.properties[key]}"[/#if][/#list]>
 <div id="headerdiv">
     <h1>JMonitaur</h1>
 </div>

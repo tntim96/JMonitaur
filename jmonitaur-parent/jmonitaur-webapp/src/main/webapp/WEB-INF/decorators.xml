@@ -1,7 +1,8 @@
 <decorators defaultdir="/service/decorators">
 
     <decorator name="service" page="service-decorator.ftl">
-        <url-pattern>/service</url-pattern>
+        <pattern>/service</pattern>
+        <pattern>*.html</pattern>
     </decorator>
 
 </decorators>

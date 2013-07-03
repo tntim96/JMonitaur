@@ -5,6 +5,7 @@ JMonitaur is a showcase template/example of a Java/JavaScript application with t
 * Pure Java/JavaScript
 * Separation of Java and JavaScript roles
 * Component architecture testable at all levels
+* Script-centric, but leveraging IDEs
 
 Technology Drivers and Choices
 * Component architecture (prefer multi-Maven project over Ant)
