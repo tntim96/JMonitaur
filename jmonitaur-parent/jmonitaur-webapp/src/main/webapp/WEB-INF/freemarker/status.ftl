@@ -6,7 +6,7 @@
 <body>
 <table class="healthTable">
     <tr>
-        <th>Level</th>
+        <th>Status</th>
         <th>System</th>
         <th>Description</th>
     </tr>
