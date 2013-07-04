@@ -1,7 +1,6 @@
 package com.github.tntim96.jmonitaur.web;
 
 import jscover.Main;
-import jscover.util.IoUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -107,7 +106,7 @@ public class WebDriverJasmineTest {
         new WebDriverWait(webClient, 1).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("browserIframe"));
         new WebDriverWait(webClient, 1).until(ExpectedConditions.presenceOfElementLocated(By.className("duration")));
         new WebDriverWait(webClient, 1).until(ExpectedConditions.textToBePresentInElement(By.className("duration"), "finished"));
-        verifyJamineTestsPassed();
+        vesrifyJasmineTestsPassed();
 
         webClient.switchTo().window(handle);
 
@@ -134,7 +133,7 @@ public class WebDriverJasmineTest {
         webClient.switchTo().window("jscoverage_window");
         new WebDriverWait(webClient, 1).until(ExpectedConditions.presenceOfElementLocated(By.className("duration")));
         new WebDriverWait(webClient, 1).until(ExpectedConditions.textToBePresentInElement(By.className("duration"), "finished"));
-        verifyJamineTestsPassed();
+        vesrifyJasmineTestsPassed();
         webClient.switchTo().window(handle);
 
         verifyTotal(webClient, 100, 0, 100);
@@ -146,7 +145,7 @@ public class WebDriverJasmineTest {
         verifyTotal(webClient, 100, 0, 100);
     }
 
-    private void verifyJamineTestsPassed() {
+    private void vesrifyJasmineTestsPassed() {
         if (webClient.findElements(By.className("failingAlert")).size() != 0) {
             fail("Failing on test " + getTestUrl());
         }
