@@ -69,15 +69,15 @@ public class Localhost {
 
         private void stopJetty(HttpServletRequest request) {
             ((Request) request).setHandled(true);
-            Thread death = new Thread(new SuicideAttempt(getServer()));
+            Thread death = new Thread(new ShutdownThread(getServer()));
             death.start();
         }
     }
 
-    private static class SuicideAttempt implements Runnable {
+    private static class ShutdownThread implements Runnable {
         private final Server server;
 
-        public SuicideAttempt(Server server) {
+        public ShutdownThread(Server server) {
             this.server = server;
         }
 
