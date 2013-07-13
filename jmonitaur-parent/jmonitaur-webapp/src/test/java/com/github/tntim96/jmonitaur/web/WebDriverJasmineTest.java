@@ -106,7 +106,7 @@ public class WebDriverJasmineTest {
         new WebDriverWait(webClient, 1).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("browserIframe"));
         new WebDriverWait(webClient, 1).until(ExpectedConditions.presenceOfElementLocated(By.className("duration")));
         new WebDriverWait(webClient, 1).until(ExpectedConditions.textToBePresentInElement(By.className("duration"), "finished"));
-        vesrifyJasmineTestsPassed();
+        verifyJasmineTestsPassed();
 
         webClient.switchTo().window(handle);
 
@@ -133,7 +133,7 @@ public class WebDriverJasmineTest {
         webClient.switchTo().window("jscoverage_window");
         new WebDriverWait(webClient, 1).until(ExpectedConditions.presenceOfElementLocated(By.className("duration")));
         new WebDriverWait(webClient, 1).until(ExpectedConditions.textToBePresentInElement(By.className("duration"), "finished"));
-        vesrifyJasmineTestsPassed();
+        verifyJasmineTestsPassed();
         webClient.switchTo().window(handle);
 
         verifyTotal(webClient, 100, 0, 100);
@@ -145,7 +145,7 @@ public class WebDriverJasmineTest {
         verifyTotal(webClient, 100, 0, 100);
     }
 
-    private void vesrifyJasmineTestsPassed() {
+    private void verifyJasmineTestsPassed() {
         if (webClient.findElements(By.className("failingAlert")).size() != 0) {
             fail("Failing on test " + getTestUrl());
         }
