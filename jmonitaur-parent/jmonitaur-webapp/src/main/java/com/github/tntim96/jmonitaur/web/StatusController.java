@@ -24,10 +24,9 @@ public class StatusController {
         this.service = service;
     }
 
-    public
     @ResponseBody
     @RequestMapping(value = "/statusJSON", produces = "application/json")
-    List<Status> getStatusJSON() {
+    public List<Status> getStatusJSON() {
         return service.getStatues();
     }
 
