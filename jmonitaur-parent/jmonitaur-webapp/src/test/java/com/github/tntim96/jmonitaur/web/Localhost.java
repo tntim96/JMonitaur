@@ -1,23 +1,41 @@
 package com.github.tntim96.jmonitaur.web;
 
-import org.mortbay.jetty.Handler;
-import org.mortbay.jetty.NCSARequestLog;
-import org.mortbay.jetty.Request;
-import org.mortbay.jetty.Server;
-import org.mortbay.jetty.handler.AbstractHandler;
-import org.mortbay.jetty.handler.RequestLogHandler;
-import org.mortbay.jetty.security.SslSocketConnector;
-import org.mortbay.jetty.webapp.WebAppContext;
-import org.mortbay.servlet.GzipFilter;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.webapp.*;
 
 public class Localhost {
 
+    public static void main(String[] args) throws Exception {
+        int port = 8080;
+        Server server = new Server(port);
+
+        String wardir = "jmonitaur-parent/jmonitaur-webapp/src/main/webapp";
+
+        WebAppContext context = new WebAppContext();
+        context.setResourceBase(wardir);
+        context.setDescriptor(wardir + "WEB-INF/web.xml");
+        context.setConfigurations(new Configuration[] {
+                new WebXmlConfiguration(),
+                new WebInfConfiguration(),
+                new MetaInfConfiguration(),
+                new FragmentConfiguration()
+        });
+
+        context.setContextPath("/");
+        context.setParentLoaderPriority(true);
+        server.setHandler(context);
+        server.start();
+        server.join();
+        /* TODO add
+             - SSL
+             - GZIP filter
+             - NCSARequestLog
+             - shutdown hook?
+         */
+    }
+
+
+/*
     public static void main(String[] args) throws Exception {
         Server server = new Server(8080);
 
@@ -89,4 +107,5 @@ public class Localhost {
             }
         }
     }
+*/
 }
