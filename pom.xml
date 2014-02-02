@@ -12,4 +12,7 @@
     <modules>
         <module>jmonitaur-parent</module>
     </modules>
+    <prerequisites>
+        <maven>2.2.1</maven>
+    </prerequisites>
 </project>
