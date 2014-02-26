@@ -15,9 +15,9 @@
     <name>JMonitaur Web Application</name>
 
     <properties>
-        <spring-framework.version>4.0.1.RELEASE</spring-framework.version>
+        <spring-framework.version>4.0.2.RELEASE</spring-framework.version>
         <jackson-2-version>2.3.1</jackson-2-version>
-        <jetty-version>9.1.1.v20140108</jetty-version>
+        <jetty-version>9.1.2.v20140210</jetty-version>
     </properties>
 
     <dependencies>
@@ -116,19 +116,19 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>2.39.0</version>
+            <version>2.40.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-server</artifactId>
-            <version>2.39.0</version>
+            <version>2.40.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.github.tntim96</groupId>
             <artifactId>JSCover</artifactId>
-            <version>1.0.6</version>
+            <version>1.0.7</version>
         </dependency>
     </dependencies>
     <build>
