@@ -8,7 +8,7 @@ describe('Status controllers', function () {
         // with the same name as the service.
         beforeEach(inject(function (_$httpBackend_, $rootScope, $controller) {
             $httpBackend = _$httpBackend_;
-            $httpBackend.expectGET('service/statusJSON').
+            $httpBackend.expectGET('/statusJSON').
                 respond([
                     {level: 'Critical', systemId: "Shields", description: "Down"},
                     {level: 'Warning', systemId: "Oxygen", description: "Running low"}

@@ -2,10 +2,12 @@ package com.github.tntim96.jmonitaur.service;
 
 import com.github.tntim96.jmonitaur.model.Level;
 import com.github.tntim96.jmonitaur.model.Status;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class JMonitaurService {
     public List<Status> getStatues() {
         List<Status> statuses = new ArrayList<Status>();

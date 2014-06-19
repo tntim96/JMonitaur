@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -24,18 +25,17 @@ public class StatusController {
         this.service = service;
     }
 
+    @RequestMapping(value = "/statusJSON")
     @ResponseBody
-    @RequestMapping(value = "/statusJSON", produces = "application/json")
     public List<Status> getStatusJSON() {
         return service.getStatues();
     }
 
     @RequestMapping(value = {"/status"})
-    public String getStatusHtml(ModelMap model) {
-        model.put("statuses", service.getStatues());
-        return "status";
+    public ModelAndView getStatusHtml() {
+        return new ModelAndView("pages/status", "statuses", service.getStatues());
     }
-
+/*
     @RequestMapping(value = {"/statusSSE"})
     public String statusSSE(HttpServletResponse response) throws IOException {
         response.setContentType("text/event-stream");
@@ -51,5 +51,5 @@ public class StatusController {
             }
         }
         return null;
-    }
+    }*/
 }
