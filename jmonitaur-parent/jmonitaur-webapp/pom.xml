@@ -9,7 +9,6 @@
         <artifactId>jmonitaur-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-
     <artifactId>jmonitaur-webapp</artifactId>
     <packaging>war</packaging>
     <name>JMonitaur Web Application</name>
@@ -19,29 +18,15 @@
     </properties>
 
     <dependencies>
-<!--
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-            <scope>provided</scope>
-        </dependency>
--->
         <dependency>
             <groupId>com.github.tntim96</groupId>
             <artifactId>jmonitaur-service</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-webapp</artifactId>
-            <version>${jetty-version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
-            <version>2.2.2</version>
+            <version>2.4.0-beta-1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -53,19 +38,13 @@
         <dependency>
             <groupId>org.gebish</groupId>
             <artifactId>geb-spock</artifactId>
-            <version>0.9.2</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>2.42.0</version>
+            <version>0.9.3</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-server</artifactId>
-            <version>2.42.0</version>
+            <version>2.42.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
