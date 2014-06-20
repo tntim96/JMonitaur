@@ -25,13 +25,6 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentI
 public class WebDriverJasmineTest {
     private static Thread server;
 
-    static {
-        System.setProperty("phantomjs.binary.path", "C:/js/phantomjs-1.9.1-windows/phantomjs.exe");
-        System.setProperty("webdriver.ie.driver", "C:/java/IEDriverServer_x64_2.33.0/IEDriverServer.exe");
-//        System.setProperty("webdriver.chrome.driver","C:/Program Files (x86)/Google/Chrome/Application/chrome.exe");
-        System.setProperty("webdriver.chrome.driver", "C:/java/chromedriver_win32_2.0/chromedriver.exe");
-    }
-
     protected WebDriver webClient = getWebClient();
     private String[] args = new String[]{
             "-ws",

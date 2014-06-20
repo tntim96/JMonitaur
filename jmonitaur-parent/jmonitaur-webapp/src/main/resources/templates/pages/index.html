@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout" ng-app="">
+<head>
+    <title>Status</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}" href="../../css/app.css"/>
+    <script th:src="@{/js/libs/angularjs/1.0.7/angular.min.js}" src="../../js/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script th:src="@{/js/status.js}" src="../../js/status.js"></script>
+    <script type="text/javascript" language="JavaScript">
+        <!--
+        function registerSSE() {
+//            var source = new EventSource('/statusSSE');
+//            source.addEventListener('status-update', function(e) {
+//                document.getElementById('statusUpdateDiv').innerHTML = e.data;
+//            }, false);
+        }
+        -->
+    </script>
+</head>
+<body ng-controller="StatusListCtrl" onLoad="registerSSE()">
+<h1 layout:fragment="header">Statuses</h1>
+<div layout:fragment="content" class="container">
+    <table class="healthTable">
+        <tr>
+            <th>Status</th>
+            <th>System</th>
+            <th>Description</th>
+        </tr>
+        <tr ng-repeat="status in statuses">
+            <td>{{status.level}}</td>
+            <td>{{status.systemId}}</td>
+            <td>{{status.description}}</td>
+        </tr>
+    </table>
+</div>
+<div id="statusUpdateDiv">[STATUS]</div>
+</body>
+</html>

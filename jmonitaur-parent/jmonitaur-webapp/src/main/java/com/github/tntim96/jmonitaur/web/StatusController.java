@@ -31,6 +31,11 @@ public class StatusController {
         return service.getStatues();
     }
 
+    @RequestMapping(value = {"/index"})
+    public ModelAndView getStatusAngular() {
+        return new ModelAndView("pages/index", "statuses", service.getStatues());
+    }
+
     @RequestMapping(value = {"/status"})
     public ModelAndView getStatusHtml() {
         return new ModelAndView("pages/status", "statuses", service.getStatues());

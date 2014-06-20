@@ -30,7 +30,7 @@ public class AcceptanceTest {
 
     @Test
     public void shouldRenderStatusPageAngularJS() {
-        driver.get("http://localhost:8080/index.html");
+        driver.get("http://localhost:8080/index");
         verifyPage();
     }
 
