@@ -134,6 +134,28 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>com.github.tntim96</groupId>
+                <artifactId>jscover-server-maven-plugin</artifactId>
+                <version>1.0.5</version>
+                <configuration>
+                    <testDirectory>src/test/javascript/</testDirectory>
+                    <testIncludes>*.html</testIncludes>
+                    <testType>JasmineHtmlReporter</testType>
+                    <lineCoverageMinimum>100</lineCoverageMinimum>
+                    <!--<branchCoverageMinimum>100</branchCoverageMinimum>-->
+                    <functionCoverageMinimum>100</functionCoverageMinimum>
+                    <port>9001</port>
+                    <instrumentPathArgs>
+                        <arg>--no-instrument=src/main/resources/static/js/libs</arg>
+                        <arg>--no-instrument=src/main/resources/static/js/test</arg>
+                        <arg>--no-instrument=src/test</arg>
+                        <arg>--no-instrument=target</arg>
+                    </instrumentPathArgs>
+                    <includeUnloadedJS>true</includeUnloadedJS>
+                    <webDriverClassName>org.openqa.selenium.firefox.FirefoxDriver</webDriverClassName>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
