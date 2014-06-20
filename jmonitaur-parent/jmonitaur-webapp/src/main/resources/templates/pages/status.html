@@ -8,15 +8,12 @@
 <body>
 <h1 layout:fragment="header">Statuses</h1>
 <div layout:fragment="content" class="container">
-    <table class="table table-bordered table-striped">
-        <thead>
+    <table class="healthTable">
         <tr>
-            <td>Status</td>
-            <td>System</td>
-            <td>Description</td>
+            <th>Status</th>
+            <th>System</th>
+            <th>Description</th>
         </tr>
-        </thead>
-        <tbody>
         <tr th:if="${statuses.empty}">
             <td colspan="3">
                 No statuses
@@ -27,7 +24,6 @@
             <td th:text="${status.systemId}">1</td>
             <td th:text="${status.description}">1</td>
         </tr>
-        </tbody>
     </table>
 </div>
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
 <head>
-    <title>JMonitaur</title>
+    <title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">JMonitaur</title>
     <link rel="stylesheet"
           th:href="@{/css/app.css}"
           href="../../css/app.css"/>

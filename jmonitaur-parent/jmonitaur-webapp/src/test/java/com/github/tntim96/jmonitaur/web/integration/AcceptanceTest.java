@@ -36,7 +36,7 @@ public class AcceptanceTest {
 
     @Test
     public void shouldRenderStatusPageServer() {
-        driver.get("http://localhost:8080/service/status");
+        driver.get("http://localhost:8080/status");
         verifyPage();
     }
 
