@@ -37,8 +37,7 @@ public class WebDriverJasmineTest {
     };
 
     protected String getWebDir() {
-        File userDir = new File(System.getProperty("user.dir"));
-        return Arrays.asList(userDir.list()).contains("jmonitaur-parent") ? "jmonitaur-parent/jmonitaur-webapp" : ".";
+        return new File(".").getAbsolutePath();
     }
 
     protected String getReportDir() {
