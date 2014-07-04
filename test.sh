@@ -1,0 +1,1 @@
+mvn clean cobertura:cobertura integration-test surefire-report:report verify

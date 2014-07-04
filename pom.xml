@@ -12,7 +12,7 @@
     <groupId>com.github.tntim96</groupId>
     <artifactId>JMonitaur</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>JMonitaur</name>
     <prerequisites>
         <maven>3.0.0</maven>
@@ -29,8 +29,14 @@
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-server</artifactId>
+            <artifactId>selenium-java</artifactId>
             <version>2.42.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.detro.ghostdriver</groupId>
+            <artifactId>phantomjsdriver</artifactId>
+            <version>1.1.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -109,7 +115,7 @@
                         <arg>--no-instrument=target</arg>
                     </instrumentPathArgs>
                     <includeUnloadedJS>true</includeUnloadedJS>
-                    <webDriverClassName>org.openqa.selenium.firefox.FirefoxDriver</webDriverClassName>
+                    <!--<webDriverClassName>org.openqa.selenium.firefox.FirefoxDriver</webDriverClassName>-->
                 </configuration>
             </plugin>
         </plugins>

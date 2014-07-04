@@ -11,6 +11,12 @@ JMonitaur
 
 `mvn spring-boot:run`
 
+...or...
+
+`mvn package`
+
+`java -jar target/JMonitaur-0.0.1-SNAPSHOT.jar`
+
 [http://localhost:8080/index](http://localhost:8080/index)
 
 # Architecture
