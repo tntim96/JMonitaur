@@ -1,6 +1,8 @@
 package com.github.tntim96.jmonitaur.web.integration;
 
+import com.github.tntim96.jmonitaur.WebUiApplication;
 import org.junit.After;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +15,11 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class AcceptanceTest {
     private WebDriver driver = new FirefoxDriver();
+
+    @BeforeClass
+    public static void beforeClass() throws Exception {
+        WebUiApplication.main(new String[]{});
+    }
 
     @After
     public void tearDown() {

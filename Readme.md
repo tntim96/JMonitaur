@@ -1,5 +1,7 @@
 JMonitaur
 ================================
+`mvn verify`
+
 
 JMonitaur is a showcase template/example of a Java/JavaScript application with the following principles:
 * Pure Java/JavaScript
