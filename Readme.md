@@ -1,7 +1,19 @@
 JMonitaur
 ================================
+
+[![Build Status](https://drone.io/github.com/tntim96/JMonitaur/status.png)](https://drone.io/github.com/tntim96/JMonitaur/latest)
+
+# Run Tests
+
 `mvn verify`
 
+# Run Server
+
+`mvn spring-boot:run`
+
+[http://localhost:8080/index](http://localhost:8080/index)
+
+# Architecture
 
 JMonitaur is a showcase template/example of a Java/JavaScript application with the following principles:
 * Pure Java/JavaScript
