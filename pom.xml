@@ -115,7 +115,7 @@
                         <arg>--no-instrument=target</arg>
                     </instrumentPathArgs>
                     <includeUnloadedJS>true</includeUnloadedJS>
-                    <!--<webDriverClassName>org.openqa.selenium.firefox.FirefoxDriver</webDriverClassName>-->
+                    <webDriverClassName>org.openqa.selenium.firefox.FirefoxDriver</webDriverClassName>
                 </configuration>
             </plugin>
         </plugins>
