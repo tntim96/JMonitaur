@@ -1,1 +1,0 @@
-mvn clean compiler:compile compiler:testCompile resources:resources resources:testResources surefire:test integration-test verify && mvn surefire-report:report
