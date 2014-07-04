@@ -3,6 +3,7 @@ package com.github.tntim96.jmonitaur.web.integration
 import com.github.tntim96.jmonitaur.WebUiApplication
 import geb.spock.GebReportingSpec
 import org.junit.After
+import org.junit.AfterClass
 import org.junit.BeforeClass
 import spock.lang.Stepwise
 
@@ -12,6 +13,11 @@ class GebAcceptanceTest extends GebReportingSpec {
     @BeforeClass
     public static void beforeClass() throws Exception {
         WebUiApplication.main([] as String[]);
+    }
+
+    @AfterClass
+    public static void afterClass() throws Exception {
+        WebUiApplication.exit();
     }
 
     def "Status HTML5"() {

@@ -2,6 +2,7 @@ package com.github.tntim96.jmonitaur.web.integration;
 
 import com.github.tntim96.jmonitaur.WebUiApplication;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -19,6 +20,11 @@ public class AcceptanceTest {
     @BeforeClass
     public static void beforeClass() throws Exception {
         WebUiApplication.main(new String[]{});
+    }
+
+    @AfterClass
+    public static void afterClass() throws Exception {
+        WebUiApplication.exit();
     }
 
     @After
