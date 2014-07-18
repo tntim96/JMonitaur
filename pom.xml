@@ -109,7 +109,7 @@
                 <configuration>
                     <testDirectory>src/test/javascript/</testDirectory>
                     <testIncludes>*.html</testIncludes>
-                    <testType>JasmineHtmlReporter</testType>
+                    <testType>Jasmine2</testType>
                     <lineCoverageMinimum>100</lineCoverageMinimum>
                     <!--<branchCoverageMinimum>100</branchCoverageMinimum>-->
                     <functionCoverageMinimum>100</functionCoverageMinimum>
