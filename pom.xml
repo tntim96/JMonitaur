@@ -110,7 +110,7 @@
             <plugin>
                 <groupId>com.github.tntim96</groupId>
                 <artifactId>jscover-server-maven-plugin</artifactId>
-                <version>1.0.10</version>
+                <version>1.0.11</version>
                 <executions>
                     <execution>
                         <phase>verify</phase>
