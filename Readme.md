@@ -35,4 +35,3 @@ Technology Drivers and Choices
 * Separation of web-development and JEE development (prefer all stand-alone JavaScript libraries over tightly coupled client-server solutions)
 * Allow choice between Single Page Interface (SPI) and multi-page
 * Allow file-system DOM-JavaScript development and testing on multi-page applications
-* Prefer multi-browser testing with WebDriver over Selenium, Karma

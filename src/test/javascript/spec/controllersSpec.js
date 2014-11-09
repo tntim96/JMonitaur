@@ -1,31 +1,42 @@
 describe('Status controllers', function () {
+    var $httpBackend, $rootScope, createController, authRequestHandler;
 
-    describe('StatusListCtrl', function () {
-        var scope, ctrl, $httpBackend;
+    beforeEach(module('jmonStatus'));
 
-        // The injector ignores leading and trailing underscores here (i.e. _$httpBackend_).
-        // This allows us to inject a service but then attach it to a variable
-        // with the same name as the service.
-        beforeEach(inject(function (_$httpBackend_, $rootScope, $controller) {
-            $httpBackend = _$httpBackend_;
-            $httpBackend.expectGET('/statusJSON').
-                respond([
-                    {level: 'Critical', systemId: "Shields", description: "Down"},
-                    {level: 'Warning', systemId: "Oxygen", description: "Running low"}
-                ]);
+    beforeEach(inject(function ($injector) {
+        // Set up the mock http service responses
+        $httpBackend = $injector.get('$httpBackend');
+        // backend definition common for all tests
+        authRequestHandler = $httpBackend.when('GET', '/statusJSON')
+            .respond([{level: 'Critical', systemId: "Shields", description: "Down"},
+                {level: 'Warning', systemId: "Oxygen", description: "Running low"}]
+        );
 
-            scope = $rootScope.$new();
-            ctrl = $controller(StatusListCtrl, {$scope: scope});
-        }));
+        // Get hold of a scope (i.e. the root scope)
+        $rootScope = $injector.get('$rootScope');
+        // The $controller service is used to create instances of controllers
+        var $controller = $injector.get('$controller');
 
-        it('should create "statuses" model with 2 statuses fetched from xhr', function () {
-            expect(scope.statuses).toBeUndefined();
-            $httpBackend.flush();
+        createController = function () {
+            return $controller('StatusListCtrl', {'$scope': $rootScope});
+        };
+    }));
 
-            expect(scope.statuses).toEqual([
-                {level: 'Critical', systemId: "Shields", description: "Down"},
-                {level: 'Warning', systemId: "Oxygen", description: "Running low"}
-            ]);
-        });
+
+    afterEach(function () {
+        $httpBackend.verifyNoOutstandingExpectation();
+        $httpBackend.verifyNoOutstandingRequest();
+    });
+
+
+    it('should create "statuses" model with 2 statuses fetched from xhr', function () {
+        $httpBackend.expectGET('/statusJSON');
+        createController();
+        $httpBackend.flush();
+
+        expect($rootScope.statuses).toEqual([
+            {level: 'Critical', systemId: "Shields", description: "Down"},
+            {level: 'Warning', systemId: "Oxygen", description: "Running low"}
+        ]);
     });
 });
