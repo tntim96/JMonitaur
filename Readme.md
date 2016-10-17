@@ -1,7 +1,7 @@
 JMonitaur
 ================================
 
-[![Build Status](https://drone.io/github.com/tntim96/JMonitaur/status.png)](https://drone.io/github.com/tntim96/JMonitaur/latest)
+[![Build Status](https://travis-ci.org/tntim96/JMonitaur.svg?branch=master)](https://travis-ci.org/tntim96/JMonitaur)
 
 # Run Tests
 
